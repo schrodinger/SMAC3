@@ -10,11 +10,13 @@ if [[ "$PYTHON_VERSION" == "pypy_conda" ]]; then
     conda install -y -c conda-forge blas
     conda install -y numpy scipy
 
+    cat requirements.txt | grep -v -P "numpy|scipy" | xargs -n 1 -L 1 pip install
+
 else
 
     pip install pep8 codecov mypy flake8 pytest-cov
+    cat requirements.txt | xargs -n 1 -L 1 pip install
 
 fi
 
-cat requirements.txt | xargs -n 1 -L 1 pip install
 pip install .[all]
