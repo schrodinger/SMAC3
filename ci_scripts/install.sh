@@ -9,7 +9,7 @@ if [[ "$PYTHON_VERSION" == "pypy_conda" ]]; then
     # numpy conda install because BLAS missing in travis
     conda install -y -c conda-forge blas
     conda install -y numpy scipy
-
+    # ignore numpy & scipy from requirements
     cat requirements.txt | grep -v -P "numpy|scipy" | xargs -n 1 -L 1 pip install
 
 else
@@ -18,5 +18,7 @@ else
     cat requirements.txt | xargs -n 1 -L 1 pip install
 
 fi
+
+echo "REQUIREMENTS INSTALLED SUCCESSFULLY...!"
 
 pip install .[all]
