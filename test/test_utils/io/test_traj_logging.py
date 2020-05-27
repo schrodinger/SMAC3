@@ -96,9 +96,9 @@ class TrajLoggerTest(unittest.TestCase):
             with open(os.path.join(tmpdir, 'traj_old.csv')) as to:
                 data = to.read().split('\n')
             with open(os.path.join(tmpdir, 'traj_aclib2.json')) as js_aclib:
-                json_dicts_aclib2 = [json.loads(l) for l in js_aclib.read().splitlines()]
+                json_dicts_aclib2 = [json.loads(ln) for ln in js_aclib.read().splitlines()]
             with open(os.path.join(tmpdir, 'traj.json')) as js:
-                json_dicts_alljson = [json.loads(l) for l in js.read().splitlines()]
+                json_dicts_alljson = [json.loads(ln) for ln in js.read().splitlines()]
 
         # Check old format
         header = data[0].split(',')
@@ -138,7 +138,7 @@ class TrajLoggerTest(unittest.TestCase):
     @patch('smac.stats.stats.Stats')
     def test_ambigious_categoricals(self, mock_stats):
         mock_stats.ta_time_used = 0.5
-        mock_stats.get_used_wallclock_time = self.mocked_get_used_wallclock_time
+        mock_stats.get_used_wallclock_time = self.mocked_get_used_wallcljson.loads(lock_time
         mock_stats.ta_runs = 1
 
         with tempfile.TemporaryDirectory() as tmpdir:

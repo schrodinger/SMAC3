@@ -6,6 +6,8 @@ if [[ "$PYTHON_VERSION" == "pypy_conda" ]]; then
     pip install pep8 codecov flake8 pytest-cov
     # no-cache-dir for pyrfr because wheel needs to be built with a newer swig
     pypy -m pip install --no-cache-dir pyrfr>=0.8.0
+    # numpy conda install because BLAS missing in travis
+    conda install numpy scipy
 
 else
 
