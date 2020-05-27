@@ -138,7 +138,7 @@ class TrajLoggerTest(unittest.TestCase):
     @patch('smac.stats.stats.Stats')
     def test_ambigious_categoricals(self, mock_stats):
         mock_stats.ta_time_used = 0.5
-        mock_stats.get_used_wallclock_time = self.mocked_get_used_wallcljson.loads(lock_time
+        mock_stats.get_used_wallclock_time = self.mocked_get_used_wallclock_time
         mock_stats.ta_runs = 1
 
         with tempfile.TemporaryDirectory() as tmpdir:
