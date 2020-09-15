@@ -7,15 +7,8 @@ import sklearn.gaussian_process.kernels
 from smac.epm.base_epm import AbstractEPM
 import smac.epm.gp_base_prior
 
-if TYPE_CHECKING:
-    from skopt.learning.gaussian_process.kernels import Kernel
-    from skopt.learning.gaussian_process import GaussianProcessRegressor
-else:
-    from lazy_import import lazy_callable
-    Kernel = lazy_callable('skopt.learning.gaussian_process.kernels.Kernel')
-    GaussianProcessRegressor = lazy_callable(
-        'skopt.learning.gaussian_process.GaussianProcessRegressor')
-
+from skopt.learning.gaussian_process.kernels import Kernel
+from skopt.learning.gaussian_process import GaussianProcessRegressor
 
 class BaseModel(AbstractEPM):
 
